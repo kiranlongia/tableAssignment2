@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment2 generateTable</title>
+        <style>
+          table{
+            border: 1px solid #000000; }
+             table td{
+            border: 0.1px solid #000000;
+          }
+          table tr{
+            border: 0.1px solid #000000;
+             }
+        </style>
+ </head>
+    <body>
+       
+<font size="8" color="green">Assignment</font><br><br>
+
+Number of rows: <input type="text" id="t1" /><br><br>
+
+Number of cols: <input type="text" id="t2" /><br><br>
+<button id="b1" onclick="generateTable()">Generate Table</button><br><br>
+
+<button id="b3" onclick="addRow()">Add Row</button>
+<button id="b2" onclick="addColumn()">Add Column</button><br><br>
+
+<table id="myTable"></table>
+<script language="javascript">
+     
+      //declare globally
+      var table = document.createElement('table');
+   
+//function to generate table
+    function generateTable(t1, t2){
+     var table = document.createElement('table');
+    for(var i= 0; i < t1; i++)
+    {
+    var tr = document.createElement('tr');
+
+    for(var j = 0; j < t2; j++)
+            {
+            var td = document.createElement('td');
+            td.innerHTML = 'r'+i +'c'+j;
+            tr.appendChild(td);
+            }
+    table.appendChild(tr);
+}
+ document.body.appendChild(table);
+}
+var button = document.getElementById('b1').addEventListener('click', function(){
+
+var t1 = document.getElementById('t1').value;
+
+var t2 = document.getElementById('t2').value;
+generateTable(t1, t2);
+})
+
+//function to add the rows in the table
+function addRow(t1, t2) {
+  var table = document.getElementById("myTable");
+
+  for(var i= t1; i<=t1; i++)
+    {
+   var tr = document.createElement('tr');
+
+    //tr.style.border = 'solid 1px black';
+    for(var j = 0; j < t2; j++)
+            {
+           var td = document.createElement('td');
+            td.innerHTML = 'r'+i +'c'+j;
+            tr.appendChild(td);
+            }
+    table.appendChild(tr);
+}
+ document.body.appendChild(table);
+
+}
+var button = document.getElementById('b3').addEventListener('click', function(){
+
+var t1 = document.getElementById('t1').value;
+addRow(t1, t2);//calling the function addRow
+
+var t2 = document.getElementById('t2').value;
+addRow(t1, t2);//calling the function addRow
+});
+
+</script>
+    </body>
+</html>
